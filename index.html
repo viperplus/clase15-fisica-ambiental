@@ -50,6 +50,8 @@ body{margin:0;background:var(--fondo);color:var(--texto);font-family:Arial,Helve
 .dato{border:2px solid var(--azul);background:#EFF6FF;border-radius:10px;padding:.7rem .9rem;font-weight:700;color:#1E40AF;margin:1rem 0}
 .dato.rojo{border-color:#EF4444;background:#FEE2E2;color:#991B1B}
 .dato.verde{border-color:#22C55E;background:#ECFDF5;color:#166534}
+.dato.mic{border-color:#8B5CF6;background:#F5F3FF;color:#5B21B6}
+.nota-mic{display:inline-flex;align-items:center;gap:.35rem;background:#F5F3FF;border:1.5px solid #C4B5FD;color:#5B21B6;border-radius:999px;padding:.28rem .8rem;font-size:.85rem;font-weight:700;margin:0 0 .9rem}
 .nota{border-left:3px solid #D1D5DB;background:#F9FAFB;padding:.75rem 1rem;color:#374151;border-radius:0 6px 6px 0;font-size:.97rem;line-height:1.7;margin:1.3rem 0}
 
 /* ===== DIAGRAMA ===== */
@@ -258,6 +260,7 @@ body.imprenta *{text-transform:uppercase !important;letter-spacing:.03em !import
       <li><span class="ico">✍️</span><span>Hacer <strong>3 actividades</strong>, incluida una sobre el futuro de Río Negro.</span></li>
       <li><span class="ico">🎯</span><span>Cerrar con una comprobación y la autoevaluación.</span></li>
     </ul>
+    <div class="dato mic">🎤 Si lo desean, pueden responder las preguntas compartiendo un <strong>audio</strong>: graben su respuesta y envíenla a la docente.</div>
     <div class="dato verde">🚀 ¿Arrancamos? Empecemos por lo más cercano: lo que hacemos cada día sin pensarlo.</div>
   </div>
 
@@ -426,6 +429,7 @@ body.imprenta *{text-transform:uppercase !important;letter-spacing:.03em !import
     <h2>✍️ Actividad 1 - Radiografía de nuestra vida diaria</h2>
     <button class="btn btn-escuchar" data-audio="act1" title="Escuchar consigna">🔊</button>
     <p class="consigna">Completá el cuadro indicando <strong>qué recurso usás</strong> y <strong>cómo se clasifica</strong>. Escribí con tus palabras y elegí la opción que corresponda.</p>
+    <p class="nota-mic">🎤 Podés responder escribiendo o compartiendo un audio.</p>
     <table class="table-interactive" id="cuadroAct1">
       <thead>
         <tr>
@@ -515,6 +519,7 @@ body.imprenta *{text-transform:uppercase !important;letter-spacing:.03em !import
     <h2>🗣️ Actividad 2 - Analizamos afirmaciones</h2>
     <button class="btn btn-escuchar" data-audio="act2" title="Escuchar consigna">🔊</button>
     <p class="consigna">Leé la frase y respondé si estás <strong>de acuerdo</strong> o <strong>en desacuerdo</strong>, justificando con lo visto en clase.</p>
+    <p class="nota-mic">🎤 Podés responder escribiendo o compartiendo un audio.</p>
     <div class="frase">"Si reemplazáramos todos los vehículos por autos eléctricos, eliminaríamos la contaminación por completo."</div>
     <p style="font-size:.95rem;font-weight:700;color:#0E7490;margin:.6rem 0 .3rem">💭 Pensá en cómo se genera esa electricidad y cómo se fabrican las baterías.</p>
     <div class="check-group" id="grupoAcuerdo">
@@ -541,6 +546,7 @@ body.imprenta *{text-transform:uppercase !important;letter-spacing:.03em !import
     <h2>🗺️ Actividad 3 - El futuro energético de Río Negro</h2>
     <button class="btn btn-escuchar" data-audio="act3" title="Escuchar consigna">🔊</button>
     <p class="consigna">Imaginá que tenés que decidir el futuro de nuestra provincia. <strong>¿Qué elegís?</strong> Hacé clic en una opción y leé sus argumentos.</p>
+    <p class="nota-mic">🎤 Podés responder escribiendo o compartiendo un audio.</p>
     <div class="opciones" id="opcionesFuturo">
       <div class="opcion" data-op="0" onclick="elegirOpcion(this)"><span class="ico-op">🛢️</span><span class="tit-op">Continuar con petróleo y gas</span></div>
       <div class="opcion" data-op="1" onclick="elegirOpcion(this)"><span class="ico-op">⚡</span><span class="tit-op">Cambiar rápido a renovables</span></div>
@@ -704,15 +710,15 @@ function hablar(texto, btn) {
 }
 
 const textosAudio = {
-  bienvenida: 'Hola, cómo están. Hoy nos toca Física Ambiental y una pregunta que parece simple, pero no lo es: ¿de dónde proviene la energía que consumimos? Para entenderla vamos a: seguir el viaje de la energía en cinco etapas, hasta nuestra casa; clasificar las fuentes con tres criterios y ver sus fichas; y hacer tres actividades, incluida una sobre el futuro de Río Negro. Cerramos con una comprobación y la autoevaluación. Empecemos por lo más cercano: lo que hacemos cada día sin pensarlo.',
+  bienvenida: 'Hola, cómo están. Hoy nos toca Física Ambiental y una pregunta que parece simple, pero no lo es: ¿de dónde proviene la energía que consumimos? Para entenderla vamos a: seguir el viaje de la energía en cinco etapas, hasta nuestra casa; clasificar las fuentes con tres criterios y ver sus fichas; y hacer tres actividades, incluida una sobre el futuro de Río Negro. Cerramos con una comprobación y la autoevaluación. Si lo desean, pueden responder las preguntas compartiendo un audio: graben su respuesta y envíenla a la docente. Empecemos por lo más cercano: lo que hacemos cada día sin pensarlo.',
   objetivo: 'Objetivo de la clase: reconocer de dónde proviene la energía que usamos todos los días y describir su recorrido en cinco etapas. Clasificar las fuentes de energía según tres criterios: tiempo de reposición, etapa de procesamiento y difusión histórica. Interpretar la matriz energética de Argentina y proponer decisiones para el futuro energético de Río Negro.',
   intro: 'Introducción. ¿Qué hacemos cuando usamos energía? Cada vez que prendemos una estufa, cargamos el celular o viajamos, usamos energía. La energía no se crea ni se destruye, solo se transforma. Tomamos energía de la naturaleza, como el sol, el viento o los combustibles, para obtener luz, calor o movimiento, y luego liberamos calor al ambiente.',
   recorrido: 'El recorrido de la energía, en cinco pasos. Para que la energía llegue desde la naturaleza hasta nuestros hogares, atraviesa cinco etapas. Extracción: se saca el recurso de la naturaleza, como un pozo de gas, el agua de un río, el sol o el viento. Transformación: se adapta o se convierte en centrales o refinerías para poder usarla. Transporte: viaja a grandes distancias por gasoductos o cables de alta tensión. Distribución: se reduce la presión o el voltaje para repartirla por los barrios. Consumo final: llega a nuestros artefactos para cumplir una tarea útil.',
   tipos: 'Tipos de fuentes de energía. Para ordenar los recursos usamos tres criterios. Según su tiempo de reposición: no renovables, que son recursos limitados que se agotan porque tardaron millones de años en formarse, como petróleo, gas natural, carbón y energía nuclear; y renovables, que son recursos inagotables a escala humana y provienen del sol, el viento, el agua o la biomasa. Según su etapa de procesamiento: primarias, que son los recursos tal como se obtienen de la naturaleza, como viento, sol o petróleo crudo; y secundarias, que son recursos procesados para poder usarlos y transportarlos, como la electricidad o la nafta. Según su difusión histórica: convencionales, de uso tradicional y masivo, como hidrocarburos y grandes represas; y no convencionales, tecnologías más modernas o limpias, como parques eólicos y paneles solares.',
   matriz: 'La matriz energética, el caso de Argentina. La matriz energética es un gráfico que muestra qué fuentes de energía usa un país y en qué cantidades para funcionar: transporte, industrias, hogares y electricidad. El dato clave: alrededor del ochenta y cinco por ciento de la energía en Argentina proviene de combustibles fósiles, gas natural y petróleo, lo que genera una gran dependencia y muchas emisiones de gases que causan el cambio climático.',
-  act1: 'Actividad uno: radiografía de nuestra vida diaria. Completá el cuadro indicando qué recurso usás y cómo se clasifica, en transporte, calefacción de ambientes, cocción de alimentos y agua caliente, y electricidad e iluminación.',
-  act2: 'Actividad dos: analizamos afirmaciones. Leé la frase y respondé si estás de acuerdo o en desacuerdo, justificando con lo visto en clase. Si reemplazáramos todos los vehículos por autos eléctricos, eliminaríamos la contaminación por completo. Pensá en cómo se genera esa electricidad y cómo se fabrican las baterías.',
-  act3: 'Actividad tres: el futuro energético de Río Negro. Imaginá que tenés que decidir el futuro de nuestra provincia. ¿Qué elegís? Continuar con petróleo y gas, cambiar rápido a renovables, o combinar ambas opciones. Explicá por qué. Y escribí una propuesta para aprovechar mejor la energía o cuidar el ambiente en Río Negro.',
+  act1: 'Actividad uno: radiografía de nuestra vida diaria. Completá el cuadro indicando qué recurso usás y cómo se clasifica, en transporte, calefacción de ambientes, cocción de alimentos y agua caliente, y electricidad e iluminación. Podés responder escribiendo o compartiendo un audio.',
+  act2: 'Actividad dos: analizamos afirmaciones. Leé la frase y respondé si estás de acuerdo o en desacuerdo, justificando con lo visto en clase. Si reemplazáramos todos los vehículos por autos eléctricos, eliminaríamos la contaminación por completo. Pensá en cómo se genera esa electricidad y cómo se fabrican las baterías. Podés responder escribiendo o compartiendo un audio.',
+  act3: 'Actividad tres: el futuro energético de Río Negro. Imaginá que tenés que decidir el futuro de nuestra provincia. ¿Qué elegís? Continuar con petróleo y gas, cambiar rápido a renovables, o combinar ambas opciones. Explicá por qué. Y escribí una propuesta para aprovechar mejor la energía o cuidar el ambiente en Río Negro. Podés responder escribiendo o compartiendo un audio.',
   comprobar: 'Comprobación rápida. Elegí la opción correcta en cada caso y presioná revisar respuestas. Uno. La energía del viento, tal como llega de la naturaleza, es una fuente primaria. Dos. La electricidad que sale del enchufe es una fuente secundaria. Tres. Según su tiempo de reposición, el gas natural es una fuente no renovable. Cuatro. Los parques eólicos y los paneles solares son fuentes no convencionales. Cinco. La energía nuclear es no renovable.',
   autoeval: 'Autoevaluación. Tocá la carita que mejor cuenta cómo te fue. Uno. ¿Explicás las cinco etapas del recorrido de la energía? Dos. ¿Clasificás una fuente según los tres criterios? Tres. ¿Interpretás el dato del ochenta y cinco por ciento de combustibles fósiles? Cuatro. ¿Justificás tu posición sobre los autos eléctricos y el futuro de Río Negro? Lo hice solo, con ayuda, o mucha ayuda.'
 };
